@@ -5,7 +5,8 @@ import WidgetEmbedCode from "../components/WidgetEmbedCode";
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+
+    return { ...initialProps, portalId: ctx.query.portalId };
   }
 
   render() {
@@ -25,10 +26,10 @@ export default class MyDocument extends Document {
         </Head>
         <body className="custom_class">
           <div>
-            <Header />
+            <Header portalId={this.props.portalId} />
             <Main />
           </div>
-          <WidgetEmbedCode />
+          <WidgetEmbedCode portalId={this.props.portalId} />
           <NextScript />
         </body>
       </html>

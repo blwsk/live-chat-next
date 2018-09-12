@@ -1,15 +1,17 @@
 import React from "react";
 
-export default () => (
+const param = portalId => (portalId ? `?portalId=${portalId}` : "");
+
+export default ({ portalId }) => (
   <span>
-    <a href="/">Root</a>
+    <a href={`/${param(portalId)}`}>Root</a>
     {" | "}
-    <a href="/app">App</a>
+    <a href={`/app${param(portalId)}`}>App</a>
     {" | "}
-    <a href="/pricing">Pricing</a>
+    <a href={`/pricing${param(portalId)}`}>Pricing</a>
     {" | "}
-    <a href="/bot">Bot</a>
+    <a href={`/bot${param(portalId)}`}>Bot</a>
     {" | "}
-    <a href="/gdpr">Gdpr</a>
+    <a href={`/gdpr${param(portalId)}`}>Gdpr</a>
   </span>
 );
