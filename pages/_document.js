@@ -15,8 +15,9 @@ export default class MyDocument extends Document {
         <Head>
           <title>{"Kevin's live chat test page"}</title>
           <style>{`
-            body {
+            body,html {
               font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+              background-color: #ececec;
             }
 
             #hs-eu-cookie-confirmation {
