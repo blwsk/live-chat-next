@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
           <style>{`
             body,html {
               font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-              background-color: cornflowerblue;
+              background-color: #fbfbfb;
             }
 
             #hs-eu-cookie-confirmation {
