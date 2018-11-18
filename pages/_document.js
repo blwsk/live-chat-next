@@ -1,12 +1,13 @@
-import Document, { Head, Main, NextScript } from "next/document";
-import Header from "../components/Header";
-import WidgetEmbedCode from "../components/WidgetEmbedCode";
+import Document, { Head, Main, NextScript } from 'next/document';
+import Header from '../components/Header';
+import AssociateScript from '../components/AssociateScript';
+import WidgetEmbedCode from '../components/WidgetEmbedCode';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
 
-    return { ...initialProps, portalId: ctx.query.portalId };
+    return { ...initialProps, portalId: ctx.query.portalId, query: ctx.query };
   }
 
   render() {
@@ -27,10 +28,11 @@ export default class MyDocument extends Document {
         </Head>
         <body className="custom_class">
           <div>
-            <Header portalId={this.props.portalId} />
+            <Header portalId={this.props.portalId} query={this.props.query} />
             <Main />
           </div>
-          <WidgetEmbedCode portalId={this.props.portalId} />
+          <WidgetEmbedCode portalId={this.props.portalId} query={this.props.query} />
+          <AssociateScript />
           <NextScript />
         </body>
       </html>
