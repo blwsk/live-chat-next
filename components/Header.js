@@ -1,17 +1,16 @@
-import React from "react";
+import React from 'react';
+import { serializeQueryString } from '../operators/serializeQueryString';
 
-const param = portalId => (portalId ? `?portalId=${portalId}` : "");
-
-export default ({ portalId }) => (
+export default ({ portalId, query }) => (
   <span>
-    <a href={`/${param(portalId)}`}>Root</a>
-    {" | "}
-    <a href={`/app${param(portalId)}`}>App</a>
-    {" | "}
-    <a href={`/pricing${param(portalId)}`}>Pricing</a>
-    {" | "}
-    <a href={`/bot${param(portalId)}`}>Bot</a>
-    {" | "}
-    <a href={`/gdpr${param(portalId)}`}>Gdpr</a>
+    <a href={`/${serializeQueryString(query)}`}>Root</a>
+    {' | '}
+    <a href={`/app${serializeQueryString(query)}`}>App</a>
+    {' | '}
+    <a href={`/pricing${serializeQueryString(query)}`}>Pricing</a>
+    {' | '}
+    <a href={`/bot${serializeQueryString(query)}`}>Bot</a>
+    {' | '}
+    <a href={`/gdpr${serializeQueryString(query)}`}>Gdpr</a>
   </span>
 );
