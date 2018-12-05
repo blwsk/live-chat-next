@@ -1,8 +1,8 @@
-import LetsChatButton from '../components/LetsChatButton';
+import Footer from '../components/Footer';
 
 export default () => (
   <div>
     <h1>Pricing</h1>
-    <LetsChatButton />
+    <Footer />
   </div>
 );
