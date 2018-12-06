@@ -2,6 +2,7 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import Header from '../components/Header';
 import AssociateScript from '../components/AssociateScript';
 import WidgetEmbedCode from '../components/WidgetEmbedCode';
+import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -31,6 +32,7 @@ export default class MyDocument extends Document {
             <Header portalId={this.props.portalId} query={this.props.query} />
             <Main />
           </div>
+          <GoogleAnalyticsScript />
           <WidgetEmbedCode portalId={this.props.portalId} query={this.props.query} />
           <AssociateScript />
           <NextScript />
