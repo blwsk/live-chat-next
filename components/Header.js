@@ -10,5 +10,7 @@ export default ({ portalId, query }) => (
     <a href={`/bot${serializeQueryString(query)}`}>Bot</a>
     {' | '}
     <a href={`/gdpr${serializeQueryString(query)}`}>Gdpr</a>
+    {' | '}
+    <a href={`/empty${serializeQueryString(query)}`}>Empty</a>
   </span>
 );
