@@ -3,7 +3,8 @@
   "name": "nextjs",
   "builds": [
     { "src": "next.config.js", "use": "@now/next" },
-    { "src": "static/associate.js", "use": "@now/static" }
+    { "src": "static/associate.js", "use": "@now/static" },
+    { "src": "static/liveChatSettings.js", "use": "@now/static" }
   ],
   "alias": ["live-chat-krb.com"]
 }
