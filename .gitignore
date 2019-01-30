@@ -35,3 +35,5 @@ build
 
 .npmrc
 .next
+
+.DS_Store
