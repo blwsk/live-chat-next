@@ -36,6 +36,12 @@ export default class MyDocument extends Document {
             #hs-eu-cookie-confirmation {
               display: none;
             }
+
+            #hubspot-conversations-inline-iframe {
+              border: none;
+              height: 586px;
+              width: 392px;
+            }
           `}</style>
         </Head>
         <body className="custom_class">
