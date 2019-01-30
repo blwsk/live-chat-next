@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { safelyLoadLiveChat } from '../utils/safelyLoadLiveChat';
 
 const INLINE_EMBED_ID = 'live-chat-inline-embed';
-const inlineIframeStyleString = `
-  border: none;
-  height: 586px;
-  width: 392px;
-`;
 
 class Splash extends Component {
   componentDidMount() {
@@ -15,8 +10,7 @@ class Splash extends Component {
       window.hsConversationsSettings.loadImmediately === false
     ) {
       window.hsConversationsSettings = Object.assign({}, window.hsConversationsSettings, {
-        inlineEmbedSelector: `#${INLINE_EMBED_ID}`,
-        inlineIframeStyleString
+        inlineEmbedSelector: `#${INLINE_EMBED_ID}`
       });
 
       safelyLoadLiveChat();
