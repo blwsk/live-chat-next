@@ -3,15 +3,26 @@ import Header from '../components/Header';
 import AssociateScript from '../components/AssociateScript';
 import WidgetEmbedCode from '../components/WidgetEmbedCode';
 import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
+import LiveChatSettingsScript from '../components/LiveChatSettingsScript';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
 
-    return { ...initialProps, portalId: ctx.query.portalId, query: ctx.query };
+    let portalId = 99209436;
+    try {
+      const parsed = parseInt(ctx.query.portalId, 10);
+      portalId = parsed || portalId;
+    } catch (error) {
+      //
+    }
+
+    return { ...initialProps, portalId, query: ctx.query };
   }
 
   render() {
+    const { query, portalId } = this.props;
+
     return (
       <html>
         <Head>
@@ -29,11 +40,12 @@ export default class MyDocument extends Document {
         </Head>
         <body className="custom_class">
           <div>
-            <Header portalId={this.props.portalId} query={this.props.query} />
+            <Header portalId={portalId} query={query} />
             <Main />
           </div>
           <GoogleAnalyticsScript />
-          <WidgetEmbedCode portalId={this.props.portalId} query={this.props.query} />
+          <LiveChatSettingsScript />
+          <WidgetEmbedCode portalId={portalId} query={query} />
           <AssociateScript />
           <NextScript />
         </body>
