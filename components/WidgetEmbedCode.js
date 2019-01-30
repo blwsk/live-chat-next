@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ portalId = '99209436' }) => (
+export default ({ portalId }) => (
   <script
     type="text/javascript"
     id="hs-script-loader"
