@@ -1,7 +1,7 @@
 import React from 'react';
 import { serializeQueryString } from '../operators/serializeQueryString';
 
-export default ({ query }) => (
+export default ({ portalId, query }) => (
   <span>
     <a href={`/${serializeQueryString(query)}`}>Root</a>
     {' | '}
@@ -12,7 +12,5 @@ export default ({ query }) => (
     <a href={`/gdpr${serializeQueryString(query)}`}>Gdpr</a>
     {' | '}
     <a href={`/empty${serializeQueryString(query)}`}>Empty</a>
-    {' | '}
-    <a href={`/splash${serializeQueryString(query)}`}>Splash</a>
   </span>
 );
