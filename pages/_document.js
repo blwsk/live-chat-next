@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import AssociateScript from '../components/AssociateScript';
 import WidgetEmbedCode from '../components/WidgetEmbedCode';
 import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
+import LiveChatSettingsScript from '../components/LiveChatSettingsScript';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -33,6 +34,7 @@ export default class MyDocument extends Document {
             <Main />
           </div>
           <GoogleAnalyticsScript />
+          <LiveChatSettingsScript />
           <WidgetEmbedCode portalId={this.props.portalId} query={this.props.query} />
           <AssociateScript />
           <NextScript />
