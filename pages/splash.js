@@ -39,6 +39,8 @@ class Splash extends Component {
     this.setState({
       sidebarOpen: false
     });
+
+    window.HubSpotConversations.widget.remove();
   };
 
   render() {
