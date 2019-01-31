@@ -13,14 +13,10 @@ class Splash extends Component {
   }
 
   componentDidMount() {
-    if (
-      window.hsConversationsSettings &&
-      window.hsConversationsSettings.loadImmediately === false
-    ) {
-      window.hsConversationsSettings = Object.assign({}, window.hsConversationsSettings, {
-        inlineEmbedSelector: `#${INLINE_EMBED_ID}`
-      });
-    }
+    window.hsConversationsSettings = Object.assign({}, window.hsConversationsSettings || {}, {
+      loadImmediately: false,
+      inlineEmbedSelector: `#${INLINE_EMBED_ID}`
+    });
   }
 
   componentDidUpdate() {
