@@ -19,14 +19,12 @@ export default class MyDocument extends Document {
       ...initialProps,
       portalId,
       query: ctx.query,
-      loadImmediately: ctx.query.loadImmediately,
-      inlineEmbedSelector: ctx.query.inlineEmbedSelector
+      lazy: ctx.query.lazy === 'true'
     };
   }
 
   render() {
-    const { query, portalId } = this.props;
-    console.log(JSON.stringify(this.props));
+    const { query, portalId, lazy } = this.props;
 
     return (
       <html>
@@ -48,17 +46,15 @@ export default class MyDocument extends Document {
               width: 392px;
             }
           `}</style>
-          <script type="text/javascript">
-            {`
+          {lazy && (
+            <script type="text/javascript">
+              {`
               window.hsConversationsSettings = {
-                loadImmediately: ${
-                  this.props.loadImmediately === 'true' || this.props.loadImmediately === 'false'
-                    ? this.props.loadImmediately
-                    : 'false'
-                },
+                loadImmediately: false,
               };
             `}
-          </script>
+            </script>
+          )}
         </Head>
         <body className="custom_class">
           <div>
