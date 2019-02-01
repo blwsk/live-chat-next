@@ -12,15 +12,13 @@ class Splash extends Component {
     };
   }
 
-  componentDidMount() {
-    window.hsConversationsSettings = Object.assign({}, window.hsConversationsSettings || {}, {
-      loadImmediately: false,
-      inlineEmbedSelector: `#${INLINE_EMBED_ID}`
-    });
-  }
-
   componentDidUpdate() {
-    if (this.state.sidebarOpen) {
+    if (this.state.sidebarOpen && window.hsConversationsSettings.loadImmediately === false) {
+      window.hsConversationsSettings = {
+        loadImmediately: false,
+        inlineEmbedSelector: `#${INLINE_EMBED_ID}`
+      };
+
       safelyLoadLiveChat();
     }
   }
@@ -36,7 +34,9 @@ class Splash extends Component {
       sidebarOpen: false
     });
 
-    window.HubSpotConversations.widget.remove();
+    if (window.HubSpotConversations) {
+      window.HubSpotConversations.widget.remove();
+    }
   };
 
   render() {

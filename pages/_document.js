@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import AssociateScript from '../components/AssociateScript';
 import WidgetEmbedCode from '../components/WidgetEmbedCode';
 import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
-import LiveChatSettingsScript from '../components/LiveChatSettingsScript';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -16,12 +15,18 @@ export default class MyDocument extends Document {
     } catch (error) {
       //
     }
-
-    return { ...initialProps, portalId, query: ctx.query };
+    return {
+      ...initialProps,
+      portalId,
+      query: ctx.query,
+      loadImmediately: ctx.query.loadImmediately,
+      inlineEmbedSelector: ctx.query.inlineEmbedSelector
+    };
   }
 
   render() {
     const { query, portalId } = this.props;
+    console.log(JSON.stringify(this.props));
 
     return (
       <html>
@@ -43,6 +48,17 @@ export default class MyDocument extends Document {
               width: 392px;
             }
           `}</style>
+          <script type="text/javascript">
+            {`
+              window.hsConversationsSettings = {
+                loadImmediately: ${
+                  this.props.loadImmediately === 'true' || this.props.loadImmediately === 'false'
+                    ? this.props.loadImmediately
+                    : 'false'
+                },
+              };
+            `}
+          </script>
         </Head>
         <body className="custom_class">
           <div>
@@ -50,7 +66,6 @@ export default class MyDocument extends Document {
             <Main />
           </div>
           <GoogleAnalyticsScript />
-          <LiveChatSettingsScript />
           <WidgetEmbedCode portalId={portalId} query={query} />
           <AssociateScript />
           <NextScript />
