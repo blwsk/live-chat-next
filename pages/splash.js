@@ -13,7 +13,11 @@ class Splash extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.sidebarOpen && window.hsConversationsSettings.loadImmediately === false) {
+    if (
+      this.state.sidebarOpen &&
+      window.hsConversationsSettings &&
+      window.hsConversationsSettings.loadImmediately === false
+    ) {
       window.hsConversationsSettings = {
         loadImmediately: false,
         inlineEmbedSelector: `#${INLINE_EMBED_ID}`
