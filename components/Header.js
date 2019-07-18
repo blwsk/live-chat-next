@@ -31,7 +31,7 @@ export default ({ query, portalId }) => {
           boxSizing: 'border-box'
         }}
       >
-        <p>{'👋 Specify a portal using `portalId` and `env` query parameters like so:'}</p>
+        <p>{'👋  Specify a portal using `portalId` and `env` query parameters like so:'}</p>
         <p>
           <a href="/?portalId=1653271&env=prod">
             <code>{`?portalId=1653271&env=prod`}</code>
