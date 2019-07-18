@@ -15,16 +15,20 @@ export default class MyDocument extends Document {
     } catch (error) {
       //
     }
+
+    const env = ['qa', 'prod'].indexOf(ctx.query.env) > -1 ? ctx.query.env : undefined;
+
     return {
       ...initialProps,
       portalId,
+      env,
       query: ctx.query,
       lazy: ctx.query.lazy === 'true'
     };
   }
 
   render() {
-    const { query, portalId, lazy } = this.props;
+    const { query, portalId, lazy, env } = this.props;
 
     return (
       <html>
@@ -63,7 +67,7 @@ export default class MyDocument extends Document {
             <Main />
           </div>
           <GoogleAnalyticsScript />
-          <WidgetEmbedCode portalId={portalId} query={query} />
+          <WidgetEmbedCode portalId={portalId} env={env} />
           <AssociateScript />
           <NextScript />
         </body>
