@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import Footer from '../components/Footer';
+import { withLayout } from '../components/Layout';
 
 class Empty extends Component {
   render() {
     return (
       <div>
         <h1>Empty</h1>
-        <Footer />
       </div>
     );
   }
 }
 
-export default Empty;
+export default withLayout()(Empty);

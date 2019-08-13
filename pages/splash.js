@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { safelyLoadLiveChat } from '../utils/safelyLoadLiveChat';
+import { withLayout } from '../components/Layout';
 
 const INLINE_EMBED_ID = 'live-chat-inline-embed';
 
@@ -72,4 +73,4 @@ class Splash extends Component {
   }
 }
 
-export default Splash;
+export default withLayout()(Splash);

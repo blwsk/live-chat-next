@@ -1,7 +1,9 @@
 import React from 'react';
 import { serializeQueryString } from '../operators/serializeQueryString';
 
-export default ({ query, portalId }) => {
+const Header = ({ env, portalId }) => {
+  const query = { env, portalId };
+
   return (
     <div>
       <span>
@@ -21,7 +23,6 @@ export default ({ query, portalId }) => {
           </span>
         )}
       </span>
-
       <blockquote
         style={{
           marginLeft: 0,
@@ -33,11 +34,28 @@ export default ({ query, portalId }) => {
       >
         <p>{'👋  Specify a portal using `portalId` and `env` query parameters like so:'}</p>
         <p>
-          <a href="/?portalId=1653271&env=prod">
+          <a
+            href={`/${serializeQueryString({
+              portalId: 1653271,
+              env: 'prod'
+            })}`}
+          >
             <code>{`?portalId=1653271&env=prod`}</code>
+          </a>
+        </p>
+        <p>
+          <a
+            href={`/${serializeQueryString({
+              portalId: 99209436,
+              env: 'qa'
+            })}`}
+          >
+            <code>{`?portalId=99209436&env=qa`}</code>
           </a>
         </p>
       </blockquote>
     </div>
   );
 };
+
+export default Header;

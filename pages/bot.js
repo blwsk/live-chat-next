@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import Footer from '../components/Footer';
+import { withLayout } from '../components/Layout';
 
 class Bot extends Component {
   render() {
     return (
       <div>
         <h1>Bot</h1>
-        <Footer />
       </div>
     );
   }
 }
 
-export default Bot;
+export default withLayout()(Bot);
