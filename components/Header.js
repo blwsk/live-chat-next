@@ -4,22 +4,24 @@ import { serializeQueryString } from '../operators/serializeQueryString';
 const Header = ({ env, portalId }) => {
   const query = { env, portalId };
 
+  const queryString = serializeQueryString(query);
+
   return (
     <div>
       <span>
-        <a href={`/${serializeQueryString(query)}`}>Root</a>
+        <a href={`/${queryString}`}>Root</a>
         {' | '}
-        <a href={`/pricing${serializeQueryString(query)}`}>Pricing</a>
+        <a href={`/pricing${queryString}`}>Pricing</a>
         {' | '}
-        <a href={`/bot${serializeQueryString(query)}`}>Bot</a>
+        <a href={`/bot${queryString}`}>Bot</a>
         {' | '}
-        <a href={`/gdpr${serializeQueryString(query)}`}>Gdpr</a>
+        <a href={`/gdpr${queryString}`}>Gdpr</a>
         {' | '}
-        <a href={`/empty${serializeQueryString(query)}`}>Empty</a>
+        <a href={`/empty${queryString}`}>Empty</a>
         {portalId === 99209436 && (
           <span>
             {' | '}
-            <a href={`/splash${serializeQueryString(query)}`}>Splash</a>
+            <a href={`/splash${queryString}`}>Splash</a>
           </span>
         )}
       </span>

@@ -5,9 +5,15 @@ export function serializeQueryString(obj = {}) {
     return '';
   }
 
-  const parts = keys.map(key => {
-    return `${key}=${obj[key]}`;
-  });
+  const parts = keys
+    .filter(key => !!obj[key])
+    .map(key => {
+      return `${key}=${obj[key]}`;
+    });
+
+  if (parts.length === 0) {
+    return '';
+  }
 
   return '?' + parts.join('&');
 }
