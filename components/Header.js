@@ -34,22 +34,12 @@ const Header = ({ env, portalId }) => {
       >
         <p>{'👋  Specify a portal using `portalId` and `env` query parameters like so:'}</p>
         <p>
-          <a
-            href={`/${serializeQueryString({
-              portalId: 1653271,
-              env: 'prod'
-            })}`}
-          >
+          <a href={`/${serializeQueryString({ env: 'prod', portalId: 1653271 })}`}>
             <code>{`?env=prod&portalId=1653271`}</code>
           </a>
         </p>
         <p>
-          <a
-            href={`/${serializeQueryString({
-              portalId: 99209436,
-              env: 'qa'
-            })}`}
-          >
+          <a href={`/${serializeQueryString({ env: 'qa', portalId: 99209436 })}`}>
             <code>{`?env=qa&portalId=99209436`}</code>
           </a>
         </p>
