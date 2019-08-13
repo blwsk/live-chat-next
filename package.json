@@ -12,7 +12,6 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "npm run build && next export",
-    "now-build": "next export"
+    "now-build": "next build"
   }
 }
