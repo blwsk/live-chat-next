@@ -40,7 +40,7 @@ const Header = ({ env, portalId }) => {
               env: 'prod'
             })}`}
           >
-            <code>{`?portalId=1653271&env=prod`}</code>
+            <code>{`?env=prod&portalId=1653271`}</code>
           </a>
         </p>
         <p>
@@ -50,7 +50,7 @@ const Header = ({ env, portalId }) => {
               env: 'qa'
             })}`}
           >
-            <code>{`?portalId=99209436&env=qa`}</code>
+            <code>{`?env=qa&portalId=99209436`}</code>
           </a>
         </p>
       </blockquote>
